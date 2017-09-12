@@ -1,7 +1,6 @@
 # ---- Docker container metadata ---- #
 PACKAGE       := example
 CONTAINER     := tytespoo/kiradigi/$(PACKAGE)
-REGISTRY      := $(QA_DOCKER_REGISTRY)
 TAG           ?= latest
 
 # ---- files to include in change detection, default is all versioned files ---- #
@@ -25,6 +24,7 @@ clean:
 .PHONY: publish
 publish: docker
 	@echo "Tagging '$(CONTAINER)' as '$(TAG)' and pushing into $(REGISTRY)"
+	$(aws ecr get-login --no-include-email --region eu-west-1)
 	docker tag $(CONTAINER) $(REGISTRY)/$(CONTAINER):$(TAG)
 	docker push $(REGISTRY)/$(CONTAINER):$(TAG) || echo "hint: use 'docker login $(REGISTRY)' to authenticate"
 
