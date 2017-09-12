@@ -25,7 +25,6 @@ clean:
 .PHONY: publish
 publish: docker
 	@echo "Tagging '$(CONTAINER)' as '$(TAG)' and pushing into $(REGISTRY)"
-	$(shell aws ecr get-login --no-include-email --region eu-west-1)
 	docker tag $(CONTAINER) $(REGISTRY)/$(CONTAINER):$(TAG)
 	docker push $(REGISTRY)/$(CONTAINER):$(TAG) || echo "hint: use 'docker login $(REGISTRY)' to authenticate"
 
