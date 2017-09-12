@@ -1,6 +1,6 @@
 # ---- Docker container metadata ---- #
 PACKAGE       := example
-CONTAINER     := tytespoo/kiradigi/$(PACKAGE)
+CONTAINER     := pythia-qa-registry
 REGISTRY      := $(QA_DOCKER_REGISTRY)
 TAG           ?= latest
 
