@@ -5,7 +5,7 @@ node {
     }
 
     stage('Clean') {
-        sh 'rm version.json'
+        sh 'make clean'
     }
 
     stage('Greet') {

@@ -13,6 +13,10 @@ EMAIL  := $(shell git config user.email)
 NAME   := $(shell git config user.name)
 DATE   := $(shell date +"%Y%m%dT%H%M")
 
+.PHONY: clean
+clean:
+	rm .built version.json || true
+
 # .built assembles but does not test the project; upon successful completion .built metafile is created
 .built: . $(DEPS)
 	touch $@
