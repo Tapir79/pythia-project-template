@@ -1,6 +1,7 @@
 # ---- Docker container metadata ---- #
 PACKAGE       := example
 CONTAINER     := tytespoo/kiradigi/$(PACKAGE)
+REGISTRY      := $(QA_DOCKER_REGISTRY)
 TAG           ?= latest
 
 # ---- files to include in change detection, default is all versioned files ---- #
